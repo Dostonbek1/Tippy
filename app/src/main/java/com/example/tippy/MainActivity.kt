@@ -45,6 +45,41 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
+
+        etSplit.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                Log.i(TAG, "afterSplitChanged $p0")
+                computeSplitBy()
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+        })
+    }
+
+    private fun computeSplitBy() {
+        if (etBase.text.isEmpty()) {
+            tvTipAmount.text = ""
+            tvTotalAmount.text = ""
+            return
+        }
+        val baseAmount = etBase.text.toString().toDouble()
+        val tipPercent = seekBarTip.progress
+        val tipAmount = baseAmount * tipPercent / 100
+        val totalAmount = baseAmount + tipAmount
+
+        if (etSplit.text.isEmpty()) {
+            tvEachAmount.text = ""
+            return
+        }
+        val splitNumber = etSplit.text.toString().toDouble()
+        if (splitNumber != 0.0) {
+            val eachAmount = totalAmount / splitNumber
+            tvEachAmount.text = "%.2f".format(eachAmount)
+            Log.i(TAG, "Each Amount $eachAmount")
+        }
     }
 
     private fun updateTipDescription(tipPercent: Int) {
@@ -78,5 +113,7 @@ class MainActivity : AppCompatActivity() {
         val totalAmount = baseAmount + tipAmount
         tvTipAmount.text = "%.2f".format(tipAmount)
         tvTotalAmount.text = "%.2f".format(totalAmount)
+
+        computeSplitBy()
     }
 }

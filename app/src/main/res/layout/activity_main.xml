@@ -58,6 +58,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
 
+    <TextView
+        android:id="@+id/tvSplitLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Split by"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalLabel" />
+
+    <TextView
+        android:id="@+id/tvEachLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Each"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvSplitLabel" />
+
     <!-- Views on the right side -->
 
     <EditText
@@ -69,8 +91,7 @@
         android:inputType="numberDecimal"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/tvBaseLabel"
-        app:layout_constraintBaseline_toBaselineOf="@id/tvBaseLabel"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBaseline_toBaselineOf="@id/tvBaseLabel" />
 
     <SeekBar
         android:id="@+id/seekBarTip"
@@ -113,6 +134,29 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBarTip"
         tools:text="Acceptable" />
 
+    <EditText
+        android:id="@+id/etSplit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:ems="8"
+        android:inputType="numberDecimal"
+        android:text="1"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvSplitLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSplitLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvSplitLabel" />
+
+    <TextView
+        android:id="@+id/tvEachAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvEachLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvEachLabel"
+        tools:text="13.23" />
+
     <!-- Footer -->
 
     <TextView
@@ -126,5 +170,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
