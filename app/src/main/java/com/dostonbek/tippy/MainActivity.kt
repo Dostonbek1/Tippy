@@ -1,4 +1,4 @@
-package com.example.tippy
+package com.dostonbek.tippy
 
 import android.animation.ArgbEvaluator
 import androidx.appcompat.app.AppCompatActivity

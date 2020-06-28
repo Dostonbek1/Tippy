@@ -1,4 +1,4 @@
-package com.example.tippy
+package com.dostonbek.tippy
 
 import org.junit.Test
 
